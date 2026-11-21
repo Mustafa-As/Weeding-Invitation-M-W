@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mustafa &amp; Wedad — Wedding Invitation</title>
+<meta name="theme-color" content="#F6F0E6">
+<meta property="og:title" content="Mustafa &amp; Wedad — Wedding Invitation">
+<meta property="og:description" content="Saturday, 12 December 2026 · Police Club, Alexandria">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri+Quran&family=Jost:wght@200;300&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Pinyon+Script&display=swap" rel="stylesheet">
+<style>
+:root{--linen:#F6F0E6;--paper:#FBF8F2;--sage:#8A9A7B;--sage-d:#4B5A44;--sage-dd:#3a4634;--rose:#D4A5A5;--rose-l:#F1DEDA;--rose-d:#A9686E;--gold:#B8975A}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Cormorant Garamond',Georgia,serif;color:var(--sage-dd);background:var(--linen);font-size:19px;line-height:1.6;overflow-x:hidden;text-align:center;-webkit-font-smoothing:antialiased}
+body.lock{overflow:hidden;height:100vh}
+.tex{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9 .08' numOctaves='3' seed='4'/%3E%3CfeColorMatrix values='0 0 0 0 .4 0 0 0 0 .38 0 0 0 0 .3 0 0 0 .16 0'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)'/%3E%3C/svg%3E")}
+.script{font-family:'Pinyon Script',cursive;font-weight:400}
+.small{font-size:.8rem;letter-spacing:.28em;text-transform:uppercase;padding-left:.28em}
+.ic{width:20px;height:20px;fill:none;stroke:var(--rose-d);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.gar{display:block;width:min(80vw,340px);height:auto;margin:1.3rem auto}
+h1,h2,h3,.t{text-wrap:balance}
+button{font:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--rose-d);outline-offset:3px}
+
+/* ---------- Intro (light doors + wreath seal) ---------- */
+#intro{position:fixed;inset:0;z-index:100;display:flex;transition:visibility 0s 1.9s}
+#intro.gone{visibility:hidden}
+.door{flex:1;position:relative;overflow:hidden;background-color:var(--paper);transition:transform 1.8s cubic-bezier(.77,0,.18,1)}
+.door::before{content:"";position:absolute;inset:12px;border:1px solid var(--gold)}
+.door::after{content:"";position:absolute;inset:20px;border:1px solid rgba(184,151,90,.38)}
+.door.l::before,.door.l::after{border-right:0}.door.r::before,.door.r::after{border-left:0}
+.door.l{box-shadow:8px 0 30px rgba(75,90,68,.28)}.door.r{box-shadow:-8px 0 30px rgba(75,90,68,.28)}
+.door .bsp{width:min(38vw,170px)}
+.ilayer{position:absolute;inset:0;z-index:3;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.9rem;pointer-events:none;transition:opacity .5s,transform 1s}
+.ilayer .nm2{font-size:clamp(3.4rem,15vw,4.8rem);line-height:1;color:var(--sage-d)}
+.seal{pointer-events:auto;position:relative;width:min(88vw,420px);aspect-ratio:1;border:0;border-radius:50%;background:none;color:var(--sage-d);animation:pulse 2.6s infinite}
+.seal svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.seal .in{position:absolute;inset:0;display:grid;place-content:center;gap:.3rem}
+.seal .in .mn2{font-size:clamp(3.8rem,18vw,5.6rem)}
+.seal .in .small{font-size:.58rem;letter-spacing:.2em;color:var(--rose-d);font-weight:600}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(212,165,165,.55)}70%,100%{box-shadow:0 0 0 26px rgba(212,165,165,0)}}
+.spin{animation:spin 90s linear infinite}
+@keyframes spin{to{rotate:360deg}}
+#intro.open .ilayer{opacity:0;transform:scale(1.12)}
+#intro.open .l{transform:translateX(-101%)}#intro.open .r{transform:translateX(101%)}
+
+/* ---------- Hero ---------- */
+.hero{position:relative;overflow:hidden;padding:4.5rem 1.2rem 10.5rem;background:radial-gradient(60% 40% at 15% 8%,var(--rose-l),transparent 70%),radial-gradient(55% 40% at 90% 35%,#e3e9d9,transparent 70%),var(--linen)}
+.hero>*{position:relative}
+.hero .sp{position:absolute}
+.hero::before,.hero::after{content:"";position:absolute;pointer-events:none;border:1px solid rgba(184,151,90,.55)}
+.hero::before{inset:12px}.hero::after{inset:20px;border-color:rgba(184,151,90,.3)}
+.sp.s{display:none;width:120px}.sp.ml{top:40%;left:-2px;transform:rotate(90deg)}.sp.mr{top:52%;right:-2px;transform:rotate(-90deg)}
+.bsp{position:absolute;width:min(25vw,100px);height:auto;pointer-events:none;animation:sway 8s ease-in-out infinite}
+.bsp.tl{top:16px;left:-12px}.bsp.tr{top:16px;right:-12px;animation-delay:-2s}.bsp.bl{bottom:10px;left:-12px;animation-delay:-4s}.bsp.br{bottom:10px;right:-12px;animation-delay:-3s}
+.sp{width:min(50vw,220px);height:auto;pointer-events:none;animation:sway 7s ease-in-out infinite}
+.sp.tl{top:-10px;left:-24px}.sp.tr{top:-10px;right:-24px;animation-delay:-2s}
+.sp.bl{bottom:30px;left:-24px;animation-delay:-4s}.sp.br{bottom:30px;right:-24px;animation-delay:-3s}
+@keyframes sway{50%{rotate:2.2deg}}
+.guest{font-style:italic;color:var(--rose-d);min-height:1.5em}
+.names{font-size:clamp(4.4rem,22vw,8rem);line-height:.9;color:var(--sage-d);margin:.5rem 0 .2rem}
+.nm{display:block}.ch{display:inline-block;opacity:0;transform:translateY(16px)}
+.go .ch{animation:ch .8s forwards;animation-delay:calc(var(--k)*70ms + .9s)}
+@keyframes ch{to{opacity:1;transform:none}}
+.names i{display:block;font-family:'Cormorant Garamond';font-style:italic;font-size:1.5rem;color:var(--rose-d);margin:.3rem 0}
+.lead{max-width:26ch;margin:.8rem auto 0;font-size:1.3rem;font-style:italic;color:var(--rose-d)}
+.medal{position:relative;width:min(90vw,400px);aspect-ratio:1;margin:1.4rem auto 0;display:grid;place-content:center}
+.medal svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.medal circle,.seal circle{fill:rgba(251,248,242,.92);stroke:var(--gold);stroke-width:.6}
+.medal circle.r2,.seal circle.r2{fill:none;stroke-width:.4;opacity:.6}
+.medal .wr use{opacity:0}
+.go .wr use{animation:grow .9s forwards;animation-delay:calc(var(--i)*28ms + 1.6s)}
+@keyframes grow{to{opacity:1}}
+.medal div{position:relative;line-height:1.1}
+.mn,.mn2{display:flex;align-items:center;justify-content:center;gap:.6em;font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:400;line-height:1;white-space:nowrap;color:var(--sage-d);margin:0}
+.mn{font-size:clamp(3.9rem,17vw,5.3rem)}
+.mn b,.mn2 b{display:block;font-weight:400}
+.mfl{width:.6em;height:.6em;flex:none}
+.medal .small{position:absolute;left:50%;top:calc(100% + 1.1rem);translate:-50% 0;white-space:nowrap}
+.vcard{max-width:560px;margin:0 auto;padding:.4rem 0 0}
+.dstrip{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:.5rem;margin:1.5rem auto .6rem;max-width:400px}
+.dstrip>div{display:flex;flex-direction:column;align-items:center;gap:.4rem;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--sage-d)}
+.dstrip span{padding-left:.14em}
+.dstrip .mid{padding:.3rem .9rem;border-inline:1px solid var(--gold);gap:.2rem}
+.dstrip .mid b{font-size:3.3rem;font-weight:500;line-height:1}
+.medal b{display:block;font-weight:500;font-size:clamp(3.4rem,17vw,4.6rem);color:var(--sage-d)}
+.medal .small{font-size:.66rem;letter-spacing:.24em}
+.time{margin-top:1.2rem;font-size:1.25rem}
+.div{display:flex;align-items:center;justify-content:center;gap:.8rem;margin:1.6rem auto;max-width:300px}
+.div i{flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--gold))}
+.div i:last-child{rotate:180deg}
+.div svg{width:34px;height:34px}
+.verse{max-width:560px;margin:0 auto;direction:rtl;text-align:center;font-family:'Amiri Quran',serif;font-size:clamp(1.5rem,6vw,2rem);line-height:2.3;color:var(--sage-d)}
+.verse-c{display:block;margin-top:.5rem;font-style:italic;font-size:1rem;color:var(--rose-d)}
+.cue{position:absolute;bottom:1rem;left:50%;translate:-50%;width:1px;height:38px;background:linear-gradient(var(--gold),transparent);animation:cue 2s infinite}
+@keyframes cue{50%{height:20px;opacity:.4}}
+.petal{position:fixed;top:-30px;z-index:2;width:12px;height:16px;border-radius:70% 0 70% 0;background:var(--rose);pointer-events:none;animation:fall linear infinite}
+@keyframes fall{to{transform:translate(var(--dx),110vh) rotate(540deg)}}
+
+/* ---------- Bands ---------- */
+.band{position:relative;padding:5.5rem 1.3rem 5rem}
+.band>div{max-width:620px;margin:0 auto;position:relative;z-index:1}
+.band{overflow-x:clip}
+.band h2{font-family:'Pinyon Script';font-weight:400;font-size:clamp(2.8rem,11vw,4rem);line-height:1.1}
+.wave{position:absolute;left:0;bottom:calc(100% - 1px);width:100%;height:48px;display:block}
+.sage{background-color:#33402e;color:var(--linen)}
+.sage p{color:#f3ecdd}
+.sage .div i{background:linear-gradient(90deg,transparent,#d8c08a)}
+.rose{background-color:var(--rose-l)}
+.count{display:grid;grid-template-columns:repeat(4,1fr);gap:.6rem;margin:2rem auto 0;max-width:440px}
+.count div{aspect-ratio:1;background:var(--linen);border:2px solid #d8c08a;outline:1px solid rgba(216,192,138,.5);outline-offset:4px;border-radius:50%;display:grid;place-content:center;box-shadow:0 10px 24px rgba(0,0,0,.25)}
+.count b{font-size:clamp(1.9rem,9vw,2.8rem);font-weight:600;line-height:1;color:#33402e}
+.count span{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:#8a5359;font-weight:600}
+.btn{display:inline-block;margin-top:1.6rem;padding:.8rem 1.8rem;border-radius:40px;border:1px solid var(--rose-d);background:var(--rose-d);color:#fff;text-decoration:none;letter-spacing:.08em;transition:transform .25s}
+.btn:hover{transform:translateY(-2px)}
+.btn.alt{background:#d8c08a;color:#2b3627;border-color:#d8c08a}
+.place{margin:2rem auto 0;padding:2.4rem 1.4rem;background:var(--paper);border:1px solid var(--gold);outline:1px solid rgba(184,151,90,.45);outline-offset:6px;border-radius:200px 200px 12px 12px}
+.place h3{font-weight:500;font-size:2rem}
+form{display:grid;gap:.9rem;max-width:480px;margin:2rem auto 0;text-align:left}
+input,textarea{width:100%;padding:.85rem 1rem;font:inherit;color:var(--sage-dd);background:var(--paper);border:1px solid rgba(138,154,123,.7);border-radius:10px}
+textarea{min-height:120px;resize:vertical}
+form .btn{justify-self:center;margin-top:.4rem}
+.note{font-style:italic;min-height:1.4em;text-align:center}
+#wall{display:grid;gap:1rem;max-width:560px;margin:2.4rem auto 0;text-align:left}
+.card{position:relative;padding:1.1rem 3rem 1.15rem 1.3rem;background:#FCFAF5;border:1px solid rgba(184,151,90,.35);border-left:4px solid var(--rose-d);border-radius:14px;box-shadow:0 10px 24px -16px rgba(75,90,68,.45);animation:pop .7s cubic-bezier(.3,.8,.3,1.2)}
+.ch2{display:flex;align-items:center;gap:.5rem;flex-wrap:wrap}.hrt{color:var(--rose-d);font-size:1.05rem;line-height:1}
+.cf{position:absolute;top:.7rem;right:.8rem;width:30px;height:30px}
+@keyframes pop{from{opacity:0;transform:scale(.92) translateY(14px)}}
+.card b{font-weight:600;font-size:1.15rem}.card small{color:var(--sage);margin-left:auto;font-size:.8rem}
+.card p{overflow-wrap:anywhere}
+.note{color:var(--rose-d);font-weight:600}
+.rv{opacity:0;transform:translateY(24px);transition:opacity 1s,transform 1s}
+.rv.in{opacity:1;transform:none}
+nav{position:fixed;top:max(12px,env(safe-area-inset-top));left:50%;translate:-50% 0;z-index:50;display:flex;gap:.15rem;padding:.3rem;border-radius:40px;background:rgba(251,248,242,.82);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border:1px solid rgba(184,151,90,.6);box-shadow:0 8px 24px rgba(40,50,35,.18);transition:opacity 1s .8s}
+body.lock nav{opacity:0;pointer-events:none}
+nav a{display:flex;align-items:center;white-space:nowrap;text-decoration:none;color:var(--sage-d);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600;padding:.62rem .7rem;border-radius:30px;transition:background .4s,color .4s,padding .4s}
+nav a svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;flex:none}
+nav a span{max-width:0;opacity:0;overflow:hidden;transition:max-width .45s,opacity .35s,margin .45s}
+nav a.on{background:var(--sage-d);color:var(--linen);padding-right:1rem}
+nav a.on span{max-width:90px;opacity:1;margin-left:.5rem}
+.band,.hero{scroll-margin-top:0}.band{scroll-margin-top:36px}
+.pale{background-color:#E6EBDD}
+.eye{color:var(--rose-d);margin-bottom:.6rem}
+.moment p.t,.wishes p.t{max-width:36ch;margin:1.2rem auto 0}
+.sig{font-family:'Pinyon Script';font-size:2.6rem;color:var(--rose-d);margin-top:1.2rem;line-height:1.2}
+footer{position:relative;background-color:#2b3627;color:var(--linen);padding:6.5rem 1.3rem 4.5rem}
+footer>*{position:relative}
+.fm{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+.mark{position:absolute;left:50%;top:50%;translate:-50% -50%;font-family:'Pinyon Script',serif;font-style:italic;font-weight:400;font-size:clamp(9rem,40vw,20rem);line-height:1;color:rgba(246,240,230,.055);white-space:nowrap;pointer-events:none}
+footer .small{color:#d8b46a;font-weight:600}
+footer h3{font-weight:500;font-size:clamp(2.3rem,9vw,3.8rem);line-height:1.1;color:#fff;margin:1rem auto 0;max-width:16ch}
+footer p.t{max-width:34ch;margin:1rem auto 0;color:rgba(246,240,230,.8)}
+footer .script{font-size:clamp(3.4rem,13vw,5rem);color:#ecd3d0;margin:1.4rem 0 1.2rem}
+footer .small.when{font-family:'Cormorant Garamond',serif;font-style:italic;text-transform:none;letter-spacing:.03em;font-size:1.4rem;line-height:1.5;padding-left:0;font-weight:500;color:#d9cba3}
+@media (min-width:900px){body{font-size:21px}.sp{width:260px}nav a{padding:.65rem 1.1rem}nav a span{max-width:90px;opacity:1;margin-left:.5rem}.sp.s{display:block}.bsp{width:130px}}
+@media (prefers-reduced-motion:reduce){.ch{opacity:1!important;transform:none!important}*{animation:none!important;transition-duration:.01s!important}.petal{display:none}.rv{opacity:1;transform:none}.medal .wr use{opacity:1}}
+</style>
+</head>
+<body class="lock">
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<g id="fl"><g fill="#E6C3C0"><ellipse cy="-9" rx="5.2" ry="9"/><ellipse cy="-9" rx="5.2" ry="9" transform="rotate(72)"/><ellipse cy="-9" rx="5.2" ry="9" transform="rotate(144)"/><ellipse cy="-9" rx="5.2" ry="9" transform="rotate(216)"/><ellipse cy="-9" rx="5.2" ry="9" transform="rotate(288)"/></g><circle r="3.2" fill="#B8975A"/></g>
+<path id="lf" d="M0 0C7-11 7-26 0-38-7-26-7-11 0 0Z"/>
+<symbol id="sprig" viewBox="0 0 200 260">
+<path d="M14 258C34 170 66 96 168 14" fill="none" stroke="#7d8d70" stroke-width="2"/>
+<g fill="#9AAA8B"><use href="#lf" transform="translate(30 214) rotate(-70) scale(1.1)"/><use href="#lf" transform="translate(30 214) rotate(30) scale(1.1)"/><use href="#lf" transform="translate(48 164) rotate(-62) scale(1.2)"/><use href="#lf" transform="translate(48 164) rotate(38) scale(1.2)"/><use href="#lf" transform="translate(84 112) rotate(-48) scale(1.1)"/><use href="#lf" transform="translate(84 112) rotate(50) scale(1.1)"/><use href="#lf" transform="translate(130 62) rotate(-35)"/><use href="#lf" transform="translate(130 62) rotate(60)"/></g>
+<use href="#fl" transform="translate(44 120) scale(1.7)"/><use href="#fl" transform="translate(96 66) scale(1.35)"/><use href="#fl" transform="translate(22 188) scale(1.2)"/><use href="#fl" transform="translate(150 30) scale(.9)"/>
+<g fill="#fff" opacity=".9"><circle cx="70" cy="150" r="3"/><circle cx="110" cy="100" r="3"/><circle cx="64" cy="196" r="2.6"/><circle cx="140" cy="76" r="2.6"/></g>
+</symbol>
+<circle id="bud" r="2.6" fill="#fff" stroke="#E6C3C0" stroke-width=".6"/>
+<symbol id="dv" viewBox="-14 -20 28 28"><use href="#fl"/></symbol>
+<symbol id="gar" viewBox="0 0 320 50"><path d="M0 26C40 6 80 46 120 26S200 6 240 26 300 44 320 26" fill="none" stroke="#7d8d70" stroke-width="1.6"/><g fill="#9AAA8B"><use href="#lf" transform="translate(32 18) rotate(-55) scale(.42)"/><use href="#lf" transform="translate(32 18) rotate(50) scale(.42)"/><use href="#lf" transform="translate(100 38) rotate(-60) scale(.42)"/><use href="#lf" transform="translate(100 38) rotate(40) scale(.42)"/><use href="#lf" transform="translate(135 22) rotate(-50) scale(.42)"/><use href="#lf" transform="translate(135 22) rotate(55) scale(.42)"/><use href="#lf" transform="translate(205 14) rotate(-60) scale(.42)"/><use href="#lf" transform="translate(205 14) rotate(45) scale(.42)"/><use href="#lf" transform="translate(282 38) rotate(-55) scale(.42)"/><use href="#lf" transform="translate(282 38) rotate(55) scale(.42)"/></g><use href="#fl" transform="translate(62 28) scale(.85)"/><use href="#fl" transform="translate(160 22) scale(1.25)"/><use href="#fl" transform="translate(258 30) scale(.85)"/><use href="#fl" transform="translate(14 28) scale(.55)"/><use href="#fl" transform="translate(306 28) scale(.55)"/></symbol>
+</defs></svg>
+
+<!-- Intro -->
+<div id="intro">
+  <div class="door l tex"><svg class="bsp tl" viewBox="0 0 200 260" aria-hidden="true"><use href="#sprig" width="200" height="260"/></svg><svg class="bsp bl" viewBox="0 0 200 260" aria-hidden="true"><use href="#sprig" width="200" height="260" transform="translate(0 260) scale(1 -1)"/></svg></div>
+  <div class="door r tex"><svg class="bsp tr" viewBox="0 0 200 260" aria-hidden="true"><use href="#sprig" width="200" height="260" transform="translate(200 0) scale(-1 1)"/></svg><svg class="bsp br" viewBox="0 0 200 260" aria-hidden="true"><use href="#sprig" width="200" height="260" transform="translate(200 260) scale(-1 -1)"/></svg></div>
+  <div class="ilayer">
+    <button class="seal" id="seal" aria-label="Open the invitation">
+      <svg viewBox="-100 -100 200 200" aria-hidden="true"><circle r="62"/><circle class="r2" r="57"/><g class="spin" id="wr2"></g></svg>
+      <span class="in"><span class="mn2"><b>M</b><svg class="mfl" viewBox="-20 -20 40 40" aria-hidden="true"><use href="#fl"/></svg><b>W</b></span></span>
+    </button>
+  </div>
+</div>
+
+<nav aria-label="Sections"><a href="#home" class="on" aria-label="Home"><svg viewBox="0 0 24 24"><path d="M3.5 11 12 4l8.5 7"/><path d="M5.5 9.5V20h13V9.5"/></svg><span>Home</span></a><a href="#countdown" aria-label="Countdown"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.2 2"/></svg><span>Countdown</span></a><a href="#venue" aria-label="Venue"><svg viewBox="0 0 24 24"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span>Venue</span></a><a href="#wishes" aria-label="Wishes"><svg viewBox="0 0 24 24"><path d="M12 20s-8-5.2-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 9c0 5.8-8 11-8 11z"/></svg><span>Wishes</span></a></nav>
+
+<header class="hero tex" id="home">
+  <svg class="sp tl" viewBox="0 0 200 260" aria-hidden="true"><use href="#sprig" width="200" height="260"/></svg>
+  <svg class="sp tr" viewBox="0 0 200 260" aria-hidden="true"><use href="#sprig" width="200" height="260" transform="translate(200 0) scale(-1 1)"/></svg>
+  <svg class="sp bl" viewBox="0 0 200 260" aria-hidden="true"><use href="#sprig" width="200" height="260" transform="translate(0 260) scale(1 -1)"/></svg>
+  <svg class="sp br" viewBox="0 0 200 260" aria-hidden="true"><use href="#sprig" width="200" height="260" transform="translate(200 260) scale(-1 -1)"/></svg>
+  <svg class="sp s ml" viewBox="0 0 200 260" aria-hidden="true"><use href="#sprig" width="200" height="260"/></svg>
+  <svg class="sp s mr" viewBox="0 0 200 260" aria-hidden="true"><use href="#sprig" width="200" height="260" transform="translate(200 0) scale(-1 1)"/></svg>
+  <p class="guest" id="guest"></p>
+  <h1 class="names script" aria-label="Mustafa and Wedad"><span class="nm">Mustafa</span><i>and</i><span class="nm">Wedad</span></h1>
+  <p class="lead">We’d be honored to celebrate our wedding with you</p>
+  <svg class="gar" viewBox="0 0 320 50" aria-hidden="true"><use href="#gar" width="320" height="50"/></svg>
+
+  <div class="medal">
+    <svg viewBox="-100 -100 200 200" aria-hidden="true"><circle r="62"/><circle class="r2" r="57"/><g class="wr spin" id="wr"></g></svg>
+    <div><span class="mn"><b>M </b><svg class="mfl" viewBox="-20 -20 40 40" aria-hidden="true"><use href="#fl"/></svg><b> W</b></span><span class="small">12 · 12 · 2026</span></div>
+  </div>
+  <div class="dstrip"><div><svg class="ic" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15.5" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg><span>Saturday</span></div><div class="mid"><b>12</b><span>December<br>2026</span></div><div><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.2 2"/></svg><span>3:00 PM</span></div></div>
+  <p class="time"><svg class="ic" style="vertical-align:-4px" viewBox="0 0 24 24"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg> <em>Police Club · Alexandria</em></p>
+  <svg class="gar" viewBox="0 0 320 50" aria-hidden="true"><use href="#gar" width="320" height="50"/></svg>
+  <div class="vcard"><p class="verse" lang="ar">وَمِنْ ءَايَـٰتِهِۦٓ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَٰجًا لِّتَسْكُنُوٓا۟ إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً ۚ إِنَّ فِى ذَٰلِكَ لَـَٔايَـٰتٍ لِّقَوْمٍ يَتَفَكَّرُونَ</p>
+  <span class="verse-c">Surah Ar-Rum · 30:21</span></div>
+  <span class="cue"></span>
+</header>
+
+<main>
+<section class="band pale tex rv moment">
+  <svg class="bsp tl" viewBox="0 0 200 260" aria-hidden="true"><use href="#sprig" width="200" height="260"/></svg><svg class="bsp tr" viewBox="0 0 200 260" aria-hidden="true"><use href="#sprig" width="200" height="260" transform="translate(200 0) scale(-1 1)"/></svg>
+  <svg class="wave" viewBox="0 0 1440 48" preserveAspectRatio="none" aria-hidden="true"><path d="M0 22C240 62 480 4 720 32S1200 56 1440 18V48H0Z" fill="#E6EBDD"/><path d="M0 22C240 62 480 4 720 32S1200 56 1440 18" fill="none" stroke="#B8975A" stroke-width="1.5"/></svg>
+  <div>
+    <h2>A moment worth<br>celebrating.</h2>
+    <svg class="gar" viewBox="0 0 320 50" aria-hidden="true"><use href="#gar" width="320" height="50"/></svg>
+    <p class="t">With grateful hearts and the blessing of our families, we begin a new chapter together. It would mean so much to share this joyful occasion with the people who make life beautiful.</p>
+    <p class="sig">Mustafa &amp; Wedad</p>
+  </div>
+</section>
+
+<section class="band sage tex rv" id="countdown">
+  <svg class="bsp bl" viewBox="0 0 200 260" aria-hidden="true"><use href="#sprig" width="200" height="260" transform="translate(0 260) scale(1 -1)"/></svg><svg class="bsp br" viewBox="0 0 200 260" aria-hidden="true"><use href="#sprig" width="200" height="260" transform="translate(200 260) scale(-1 -1)"/></svg>
+  <svg class="wave" viewBox="0 0 1440 48" preserveAspectRatio="none" aria-hidden="true"><path d="M0 30C240 70 480-10 720 26S1200 60 1440 14V48H0Z" fill="#33402e"/><path d="M0 30C240 70 480-10 720 26S1200 60 1440 14" fill="none" stroke="#B8975A" stroke-width="1.5"/></svg>
+  <div>
+    <h2>Counting down</h2>
+    <svg class="gar" viewBox="0 0 320 50" aria-hidden="true"><use href="#gar" width="320" height="50"/></svg>
+    <p>The big day is almost here</p>
+    <div class="count">
+      <div><b id="d">00</b><span>Days</span></div><div><b id="h">00</b><span>Hours</span></div>
+      <div><b id="m">00</b><span>Mins</span></div><div><b id="s">00</b><span>Secs</span></div>
+    </div>
+    <button class="btn alt" id="ics">Save the date</button>
+  </div>
+</section>
+
+<section class="band tex rv" id="venue" style="background-color:var(--linen)">
+  <svg class="bsp tl" viewBox="0 0 200 260" aria-hidden="true"><use href="#sprig" width="200" height="260"/></svg><svg class="bsp br" viewBox="0 0 200 260" aria-hidden="true"><use href="#sprig" width="200" height="260" transform="translate(200 260) scale(-1 -1)"/></svg>
+  <svg class="wave" viewBox="0 0 1440 48" preserveAspectRatio="none" aria-hidden="true"><path d="M0 14C240 56 480 0 720 30S1200 64 1440 24V48H0Z" fill="#F6F0E6"/><path d="M0 14C240 56 480 0 720 30S1200 64 1440 24" fill="none" stroke="#B8975A" stroke-width="1.5"/></svg>
+  <div>
+    <h2>Where &amp; when</h2>
+    <div class="place">
+      <svg class="ic" viewBox="0 0 24 24" style="width:30px;height:30px"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+      <h3>Police Club</h3>
+      <p>Alexandria, Egypt</p>
+      <svg class="gar" viewBox="0 0 320 50" aria-hidden="true"><use href="#gar" width="320" height="50"/></svg>
+      <div class="dstrip"><div><svg class="ic" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15.5" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg><span>Saturday</span></div><div class="mid"><b>12</b><span>December<br>2026</span></div><div><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.2 2"/></svg><span>3:00 PM</span></div></div>
+      <a class="btn" href="https://maps.app.goo.gl/voc42M2SN5c636ED7" target="_blank" rel="noopener">Open in Maps</a>
+    </div>
+  </div>
+</section>
+
+<section class="band rose tex rv wishes" id="wishes">
+  <svg class="bsp tr" viewBox="0 0 200 260" aria-hidden="true"><use href="#sprig" width="200" height="260" transform="translate(200 0) scale(-1 1)"/></svg><svg class="bsp bl" viewBox="0 0 200 260" aria-hidden="true"><use href="#sprig" width="200" height="260" transform="translate(0 260) scale(1 -1)"/></svg>
+  <svg class="wave" viewBox="0 0 1440 48" preserveAspectRatio="none" aria-hidden="true"><path d="M0 26C240 -8 480 60 720 24S1200 4 1440 34V48H0Z" fill="#F1DEDA"/><path d="M0 26C240 -8 480 60 720 24S1200 4 1440 34" fill="none" stroke="#B8975A" stroke-width="1.5"/></svg>
+  <div>
+    <p class="small eye">A keepsake from you</p>
+    <h2>Your words<br>will stay with us.</h2>
+    <svg class="gar" viewBox="0 0 320 50" aria-hidden="true"><use href="#gar" width="320" height="50"/></svg>
+    <p class="t">Leave us a little note, a heartfelt prayer, or a wish for the journey ahead. We would love to keep your kind words close.</p>
+    <p class="sig">With love, M &amp; W</p>
+    <form id="form">
+      <input id="name" maxlength="40" placeholder="Your name" required autocomplete="name">
+      <textarea id="msg" maxlength="300" placeholder="Your message to Mustafa &amp; Wedad…" required></textarea>
+      <button class="btn" type="submit" id="send">Send your wishes</button>
+      <p class="note" id="note"></p>
+    </form>
+    <div id="wall"></div>
+  </div>
+</section>
+</main>
+
+<footer class="tex">
+  <svg class="wave" viewBox="0 0 1440 48" preserveAspectRatio="none" aria-hidden="true"><path d="M0 18C240 -8 480 54 720 24S1200 8 1440 36V48H0Z" fill="#2b3627"/><path d="M0 18C240 -8 480 54 720 24S1200 8 1440 36" fill="none" stroke="#B8975A" stroke-width="1.5"/></svg>
+  <div class="fm"><span class="mark" aria-hidden="true">M&amp;W</span></div>
+  <svg class="bsp bl" viewBox="0 0 200 260" aria-hidden="true"><use href="#sprig" width="200" height="260" transform="translate(0 260) scale(1 -1)"/></svg><svg class="bsp br" viewBox="0 0 200 260" aria-hidden="true"><use href="#sprig" width="200" height="260" transform="translate(200 260) scale(-1 -1)"/></svg>
+  <p class="small">A new chapter begins</p>
+  <h3>Two hearts, one beautiful promise.</h3>
+  <p class="t">We would be delighted to have you with us on our special day.</p>
+  <p class="script">Mustafa &amp; Wedad</p>
+  <p class="small when">Saturday · 12 December 2026<br>3:00 in the afternoon</p>
+</footer>
+
+<script type="module">
+/* ====== Guestbook storage ======
+   Paste your Firebase web config so wishes are shared between ALL guests.
+   Leave apiKey empty = demo mode (wishes stay in the visitor's own browser). */
+const FIREBASE = { apiKey:"", authDomain:"", projectId:"", appId:"" };
+
+const $ = id => document.getElementById(id);
+
+/* Personal greeting: ?to=Guest Name */
+const to = new URLSearchParams(location.search).get('to');
+if (to) $('guest').textContent = 'Dear ' + to.slice(0,40) + ',';
+
+/* Floral wreath (laurel leaves + blossoms), used in the hero and on the intro seal */
+let w = '', k = 0;
+for (let i=0;i<32;i++){
+  const a = i*360/32, c = i%2 ? ['#8FA081','#A3B396'] : ['#A3B396','#8FA081'];
+  w += `<use href="#lf" style="--i:${k++}" fill="${c[0]}" transform="rotate(${a}) translate(0 -70) rotate(68) scale(.52)"/>`;
+  w += `<use href="#lf" style="--i:${k++}" fill="${c[1]}" transform="rotate(${a+5}) translate(0 -70) rotate(112) scale(.52)"/>`;
+}
+for (let i=0;i<8;i++){
+  const a = i*45;
+  w += `<use href="#fl" style="--i:${k++}" transform="rotate(${a}) translate(0 -70) scale(${i%2?.72:1.05})"/>`;
+  w += `<use href="#bud" style="--i:${k++}" transform="rotate(${a+22.5}) translate(0 -72)"/>`;
+}
+$('wr').innerHTML = w; $('wr2').innerHTML = w;
+
+/* Animated names */
+document.querySelectorAll('.nm').forEach((el,n) => { el.innerHTML = [...el.textContent].map((c,i) => `<span class="ch" style="--k:${i+n*8}">${c}</span>`).join(''); });
+
+/* Doors */
+$('seal').addEventListener('click', () => {
+  $('intro').classList.add('open');
+  document.body.classList.remove('lock'); document.body.classList.add('go');
+  setTimeout(() => { $('intro').classList.add('gone'); petals(); }, 1700);
+});
+
+/* Nav: highlight the section in view */
+const links = [...document.querySelectorAll('nav a')];
+const nio = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting) links.forEach(a => a.classList.toggle('on', a.getAttribute('href') === '#'+e.target.id)); }), {rootMargin:'-45% 0px -50% 0px'});
+['home','countdown','venue','wishes'].forEach(id => nio.observe($(id)));
+
+/* Falling petals */
+function petals(){
+  if (matchMedia('(prefers-reduced-motion:reduce)').matches) return;
+  for (let i=0;i<24;i++){
+    const p=document.createElement('i'); p.className='petal';
+    p.style.cssText=`left:${Math.random()*100}vw;--dx:${Math.random()*160-80}px;animation-duration:${9+Math.random()*9}s;animation-delay:${Math.random()*8}s;scale:${.6+Math.random()*.9};opacity:${.4+Math.random()*.4}`;
+    document.body.appendChild(p);
+  }
+}
+
+/* Reveal on scroll */
+const io = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting){e.target.classList.add('in'); io.unobserve(e.target);} }), {threshold:.1});
+document.querySelectorAll('.rv').forEach(el => io.observe(el));
+
+/* Countdown (Cairo time, UTC+2 in December) */
+const target = new Date('2026-12-12T15:00:00+02:00');
+const pad = n => String(n).padStart(2,'0');
+function tick(){
+  const t = Math.max(0, target - Date.now()) / 1000;
+  $('d').textContent = pad(Math.floor(t/86400));
+  $('h').textContent = pad(Math.floor(t%86400/3600));
+  $('m').textContent = pad(Math.floor(t%3600/60));
+  $('s').textContent = pad(Math.floor(t%60));
+}
+tick(); setInterval(tick, 1000);
+
+/* Save the date (.ics) */
+$('ics').addEventListener('click', () => {
+  const ics = ['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Wedding//EN','BEGIN:VEVENT','UID:mustafa-wedad-2026@wedding','DTSTAMP:20261121T000000Z','DTSTART:20261212T130000Z','DTEND:20261212T190000Z','SUMMARY:Mustafa & Wedad — Wedding','LOCATION:Police Club\\, Alexandria','DESCRIPTION:https://maps.app.goo.gl/voc42M2SN5c636ED7','END:VEVENT','END:VCALENDAR'].join('\r\n');
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob([ics], {type:'text/calendar'}));
+  a.download = 'mustafa-and-wedad-wedding.ics'; a.click();
+});
+
+/* Guestbook */
+const wall = $('wall'), note = $('note');
+function render(list){
+  wall.replaceChildren();
+  list.forEach(x => {
+    const c = document.createElement('div'); c.className='card';
+    const h = document.createElement('div'); h.className='ch2';
+    const b = document.createElement('b'); b.textContent = x.name;
+    const hr = document.createElement('span'); hr.className='hrt'; hr.textContent='♥';
+    const d = document.createElement('small'); d.textContent = new Date(x.t).toLocaleDateString('en-GB',{day:'numeric',month:'short'});
+    const m = document.createElement('p'); m.textContent = x.msg;
+    h.append(b, hr, d); c.append(h, m);
+    c.insertAdjacentHTML('beforeend','<svg class="cf" viewBox="-14 -20 28 28" aria-hidden="true"><use href="#fl"/></svg>');
+    wall.append(c);
+  });}
+let save;
+if (FIREBASE.apiKey) {
+  const { initializeApp } = await import('https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js');
+  const fs = await import('https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js');
+  const db = fs.getFirestore(initializeApp(FIREBASE));
+  const col = fs.collection(db, 'wishes');
+  fs.onSnapshot(fs.query(col, fs.orderBy('t','desc'), fs.limit(100)), snap => render(snap.docs.map(d => d.data())));
+  save = x => fs.addDoc(col, x);
+} else {
+  const KEY = 'wishes-demo';
+  const load = () => { try { return JSON.parse(localStorage.getItem(KEY)) || []; } catch { return []; } };
+  render(load());
+  save = async x => { const l = [x, ...load()].slice(0,100); try { localStorage.setItem(KEY, JSON.stringify(l)); } catch {} render(l); };
+}
+$('form').addEventListener('submit', async e => {
+  e.preventDefault();
+  const name = $('name').value.trim().slice(0,40), msg = $('msg').value.trim().slice(0,300);
+  if (!name || !msg) return;
+  $('send').disabled = true; note.textContent = 'Sending…';
+  try { await save({ name, msg, t: Date.now() }); e.target.reset(); note.textContent = 'Thank you ♥ Your wish is now on the wall.'; }
+  catch { note.textContent = 'Something went wrong. Please try again.'; }
+  $('send').disabled = false;
+});
+</script>
+</body>
+</html>
