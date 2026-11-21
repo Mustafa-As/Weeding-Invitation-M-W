@@ -25,6 +25,7 @@ h1,h2,h3,.t{text-wrap:balance}
 button{font:inherit;cursor:pointer}
 :focus-visible{outline:2px solid var(--rose-d);outline-offset:3px}
 
+
 /* ---------- Intro (light doors + wreath seal) ---------- */
 #intro{position:fixed;inset:0;z-index:100;display:flex;transition:visibility 0s 1.9s}
 #intro.gone{visibility:hidden}
@@ -161,6 +162,7 @@ footer .script{font-size:clamp(3.4rem,13vw,5rem);color:#ecd3d0;margin:1.4rem 0 1
 footer .small.when{font-family:'Cormorant Garamond',serif;font-style:italic;text-transform:none;letter-spacing:.03em;font-size:1.4rem;line-height:1.5;padding-left:0;font-weight:500;color:#d9cba3}
 @media (min-width:900px){body{font-size:21px}.sp{width:260px}nav a{padding:.65rem 1.1rem}nav a span{max-width:90px;opacity:1;margin-left:.5rem}.sp.s{display:block}.bsp{width:130px}}
 @media (prefers-reduced-motion:reduce){.ch{opacity:1!important;transform:none!important}*{animation:none!important;transition-duration:.01s!important}.petal{display:none}.rv{opacity:1;transform:none}.medal .wr use{opacity:1}}
+.priv{font-style:italic;font-size:.95rem;opacity:.8;text-align:center}
 </style>
 </head>
 <body class="lock">
@@ -274,8 +276,18 @@ footer .small.when{font-family:'Cormorant Garamond',serif;font-style:italic;text
       <textarea id="msg" maxlength="300" placeholder="Your message to Mustafa &amp; Wedad…" required></textarea>
       <button class="btn" type="submit" id="send">Send your wishes</button>
       <p class="note" id="note"></p>
+      <p class="priv">Thanks you for your Bueatiful Words</p>
     </form>
     <div id="wall"></div>
+    <div id="adm" hidden style="margin-top:2rem">
+  <p class="note" id="admnote"></p>
+  <div id="admform" style="display:grid;gap:.6rem;max-width:320px;margin:.6rem auto 0">
+    <input id="admemail" type="email" placeholder="Admin email" autocomplete="username">
+    <input id="admpass" type="password" placeholder="Password" autocomplete="current-password">
+    <button class="btn" id="admbtn" type="button">Admin sign in</button>
+  </div>
+  <button class="ed" id="admout" type="button" style="display:none">Sign out</button>
+</div>
   </div>
 </section>
 </main>
@@ -419,9 +431,44 @@ if (FIREBASE.apiKey) {
   const app = initializeApp(FIREBASE);
   const db = fs.getFirestore(app), auth = au.getAuth(app);
   const col = fs.collection(db, 'wishes');
-  fs.onSnapshot(fs.query(col, fs.orderBy('t','desc'), fs.limit(100)),
-    snap => render(snap.docs.map(d => ({ ...d.data(), id: d.id }))));
-  try { me = (await au.signInAnonymously(auth)).user.uid; render(all); } catch {}
+  const adm = $('adm'), admform = $('admform'), admout = $('admout'), admnote = $('admnote');
+  let unsub = null;
+
+  const listen = user => {
+    if (unsub) unsub();
+    me = user.uid;
+    const admin = !user.isAnonymous;
+    const q = admin
+      ? fs.query(col, fs.orderBy('t','desc'), fs.limit(500))
+      : fs.query(col, fs.where('uid','==',me), fs.limit(20));
+    unsub = fs.onSnapshot(q, snap => {
+      const list = snap.docs.map(d => ({ ...d.data(), id: d.id })).sort((a,b) => b.t - a.t);
+      render(list);
+      admnote.textContent = admin ? 'Admin view · ' + list.length + ' message' + (list.length === 1 ? '' : 's') : '';
+    }, e => { console.error('wishes:', e); if (admin) admnote.textContent = 'No permission for this account.'; });
+    if (admin) adm.hidden = false;
+    admform.style.display = admin ? 'none' : 'grid';
+    admout.style.display = admin ? 'inline-block' : 'none';
+  };
+
+  au.onAuthStateChanged(auth, u => { if (u) listen(u); });
+  await auth.authStateReady();
+  if (!auth.currentUser) { try { await au.signInAnonymously(auth); } catch (e) { console.error(e); } }
+
+  const showAdm = () => { if (location.hash === '#admin') adm.hidden = false; };
+  showAdm(); addEventListener('hashchange', showAdm);
+
+  $('admbtn').onclick = async () => {
+    admnote.textContent = '';
+    try {
+      await au.signInWithEmailAndPassword(auth, $('admemail').value.trim(), $('admpass').value);
+      $('admpass').value = '';
+    } catch (e) { admnote.textContent = 'Wrong email or password.'; }
+  };
+  admout.onclick = async () => {
+    try { await au.signOut(auth); await au.signInAnonymously(auth); } catch (e) { console.error(e); }
+  };
+
   save   = x => fs.addDoc(col, { ...x, uid: me });
   update = (id, msg) => fs.updateDoc(fs.doc(db, 'wishes', id), { msg, edited: true });
 } else {
@@ -432,6 +479,7 @@ if (FIREBASE.apiKey) {
   save   = async x => store([{ ...x, id: String(x.t), uid: me }, ...load()].slice(0,100));
   update = async (id, msg) => store(load().map(x => x.id === id ? { ...x, msg, edited: true } : x));
 }
+
 $('form').addEventListener('submit', async e => {
   e.preventDefault();
   const name = $('name').value.trim().slice(0,40), msg = $('msg').value.trim().slice(0,300);
