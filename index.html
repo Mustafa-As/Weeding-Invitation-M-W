@@ -146,6 +146,10 @@ nav a.on span{max-width:90px;opacity:1;margin-left:.5rem}
 .eye{color:var(--rose-d);margin-bottom:.6rem}
 .moment p.t,.wishes p.t{max-width:36ch;margin:1.2rem auto 0}
 .sig{font-family:'Pinyon Script';font-size:2.6rem;color:var(--rose-d);margin-top:1.2rem;line-height:1.2}
+.ed{background:none;border:0;color:var(--rose-d);font-size:.8rem;letter-spacing:.2em;text-transform:uppercase;margin-top:.4rem;text-decoration:underline;text-underline-offset:3px}
+.edta{width:100%;min-height:90px;font:inherit;padding:.6rem;border:1px solid var(--gold);background:var(--paper);color:inherit;border-radius:4px;resize:vertical}
+.edrow{display:flex;gap:.6rem;justify-content:center;margin-top:.5rem}
+.edrow button{padding:.3rem 1rem;border:1px solid var(--gold);background:var(--paper);color:var(--sage-dd);border-radius:999px}
 footer{position:relative;background-color:#2b3627;color:var(--linen);padding:6.5rem 1.3rem 4.5rem}
 footer>*{position:relative}
 .fm{position:absolute;inset:0;overflow:hidden;pointer-events:none}
@@ -364,32 +368,69 @@ $('ics').addEventListener('click', () => {
 
 /* Guestbook */
 const wall = $('wall'), note = $('note');
+let me = null, all = [], editing = null, draft = '';
+const own = x => me && x.uid === me;
+
 function render(list){
+  all = list;
   wall.replaceChildren();
   list.forEach(x => {
     const c = document.createElement('div'); c.className='card';
     const h = document.createElement('div'); h.className='ch2';
     const b = document.createElement('b'); b.textContent = x.name;
     const hr = document.createElement('span'); hr.className='hrt'; hr.textContent='♥';
-    const d = document.createElement('small'); d.textContent = new Date(x.t).toLocaleDateString('en-GB',{day:'numeric',month:'short'});
-    const m = document.createElement('p'); m.textContent = x.msg;
-    h.append(b, hr, d); c.append(h, m);
+    const d = document.createElement('small');
+    d.textContent = new Date(x.t).toLocaleDateString('en-GB',{day:'numeric',month:'short'}) + (x.edited ? ' · edited' : '');
+    h.append(b, hr, d); c.append(h);
+
+    if (editing && editing === x.id) {
+      const ta = document.createElement('textarea'); ta.className='edta'; ta.maxLength = 300; ta.value = draft;
+      ta.oninput = () => { draft = ta.value; };
+      const row = document.createElement('div'); row.className='edrow';
+      const ok = document.createElement('button'); ok.type='button'; ok.textContent='Save';
+      const no = document.createElement('button'); no.type='button'; no.textContent='Cancel';
+      no.onclick = () => { editing = null; render(all); };
+      ok.onclick = async () => {
+        const v = draft.trim().slice(0,300); if (!v) return;
+        ok.disabled = true;
+        try { await update(x.id, v); editing = null; render(all); }
+        catch { note.textContent = 'Could not save your edit.'; ok.disabled = false; }
+      };
+      row.append(ok, no); c.append(ta, row);
+    } else {
+      const m = document.createElement('p'); m.textContent = x.msg; c.append(m);
+      if (own(x)) {
+        const e = document.createElement('button'); e.type='button'; e.className='ed'; e.textContent='Edit';
+        e.onclick = () => { editing = x.id; draft = x.msg; render(all); };
+        c.append(e);
+      }
+    }
     c.insertAdjacentHTML('beforeend','<svg class="cf" viewBox="-14 -20 28 28" aria-hidden="true"><use href="#fl"/></svg>');
     wall.append(c);
-  });}
-let save;
+  });
+}
+
+let save, update;
 if (FIREBASE.apiKey) {
-  const { initializeApp } = await import('https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js');
-  const fs = await import('https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js');
-  const db = fs.getFirestore(initializeApp(FIREBASE));
+  const base = 'https://www.gstatic.com/firebasejs/10.12.2/';
+  const { initializeApp } = await import(base + 'firebase-app.js');
+  const fs = await import(base + 'firebase-firestore.js');
+  const au = await import(base + 'firebase-auth.js');
+  const app = initializeApp(FIREBASE);
+  const db = fs.getFirestore(app), auth = au.getAuth(app);
   const col = fs.collection(db, 'wishes');
-  fs.onSnapshot(fs.query(col, fs.orderBy('t','desc'), fs.limit(100)), snap => render(snap.docs.map(d => d.data())));
-  save = x => fs.addDoc(col, x);
+  fs.onSnapshot(fs.query(col, fs.orderBy('t','desc'), fs.limit(100)),
+    snap => render(snap.docs.map(d => ({ ...d.data(), id: d.id }))));
+  try { me = (await au.signInAnonymously(auth)).user.uid; render(all); } catch {}
+  save   = x => fs.addDoc(col, { ...x, uid: me });
+  update = (id, msg) => fs.updateDoc(fs.doc(db, 'wishes', id), { msg, edited: true });
 } else {
-  const KEY = 'wishes-demo';
+  const KEY = 'wishes-demo'; me = 'local';
   const load = () => { try { return JSON.parse(localStorage.getItem(KEY)) || []; } catch { return []; } };
+  const store = l => { try { localStorage.setItem(KEY, JSON.stringify(l)); } catch {} render(l); };
   render(load());
-  save = async x => { const l = [x, ...load()].slice(0,100); try { localStorage.setItem(KEY, JSON.stringify(l)); } catch {} render(l); };
+  save   = async x => store([{ ...x, id: String(x.t), uid: me }, ...load()].slice(0,100));
+  update = async (id, msg) => store(load().map(x => x.id === id ? { ...x, msg, edited: true } : x));
 }
 $('form').addEventListener('submit', async e => {
   e.preventDefault();
